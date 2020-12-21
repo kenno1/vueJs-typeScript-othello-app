@@ -1,16 +1,26 @@
 <template>
     <div class="cell-wrapper">
         <div class="cell"></div>
-        <div class="stone"></div>
+        <div class="stone" :class="stoneClass"></div>
     </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from  'vue-property-decorator';
+import { Vue, Component, Prop} from  'vue-property-decorator';
+import { Cell } from '../../models/reversi'
 
 @Component
 export default class VCell extends Vue {
 
+    @Prop({ required: true })
+    public cell!: Cell;
+
+    public get stoneClass() {
+        return {
+            'white-stone': this.cell.isWhite,
+            'black-stone': this.cell.isBlack,
+        }
+    }
 }
 </script>
 

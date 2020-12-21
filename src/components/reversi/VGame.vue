@@ -3,14 +3,17 @@
         <v-layout
         justify-center
         >
-            <VBoard/>
+            <VBoard
+                :board="board"
+            />
         </v-layout>
     </v-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from  'vue-property-decorator';
-import VBoard from '@/components/reversi/VBoard.vue';
+import VBoard from '../../components/reversi/VBoard.vue';
+import { Board } from '../../models/reversi';
 
 @Component({
     components: {
@@ -18,6 +21,8 @@ import VBoard from '@/components/reversi/VBoard.vue';
     },
 })
 export default class VGame extends Vue {
+
+public board: Board = new Board();
 
 }
 </script>
