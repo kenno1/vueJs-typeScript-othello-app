@@ -45,4 +45,8 @@ export class Board {
         this.rows[3].cells[4].state = CellState.Black;
         this.rows[4].cells[3].state = CellState.Black;
     }
+
+    public put(x: number,y: number) {
+        this.rows[y].cells[x].state = CellState.Black;
+    }
 }
