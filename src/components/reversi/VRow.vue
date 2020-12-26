@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from  'vue-property-decorator';
 import VCell from '../../components/reversi/VCell.vue';
-import { Row } from '../../models/reversi';
+import { Row, Point } from '../../models/reversi';
 
 @Component({
     components: {
@@ -24,12 +24,12 @@ export default class VRow extends Vue {
     public row!: Row;
 
     @Emit('put')
-    public put(x: number, y: number) {
+    public put(p: Point) {
         return
     }
 
-    public onPutEvent(x: number, y: number) {
-        this.put(x, y);
+    public onPutEvent(p: Point) {
+        this.put(p);
     }
 }
 </script>
